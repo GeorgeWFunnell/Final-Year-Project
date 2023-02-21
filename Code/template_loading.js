@@ -1,3 +1,14 @@
+function setUp() {
+    loadMainMenu();
+    document.querySelector("#hamburger").addEventListener("click", loadHamburger);
+    document.querySelector("#Home").addEventListener("click", loadMainMenu);
+    document.querySelector("#TrackedUnits").addEventListener("click", loadTrackingPage);
+    document.querySelector("#InputDrinks").addEventListener("click", loadEditMenu);
+    document.querySelector("#DrinkDatabase").addEventListener("click", loadDatabasePage);
+    document.querySelector('#mbgames').addEventListener("click", loadGamesPage);
+}
+
+
 function clearBody(area) {
     const pageArea = document.querySelector(area);
     while (pageArea.hasChildNodes()) {
