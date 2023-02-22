@@ -1,11 +1,6 @@
 function setUp() {
     loadMainMenu();
-    document.querySelector("#hamburger").addEventListener("click", loadHamburger);
-    document.querySelector("#Home").addEventListener("click", loadMainMenu);
-    document.querySelector("#TrackedUnits").addEventListener("click", loadTrackingPage);
-    document.querySelector("#InputDrinks").addEventListener("click", loadEditMenu);
-    document.querySelector("#DrinkDatabase").addEventListener("click", loadDatabasePage);
-    document.querySelector('#mbgames').addEventListener("click", loadGamesPage);
+
 }
 
 
@@ -22,3 +17,10 @@ function loadPage(pageID) {
     const newContent = newPage.content.cloneNode(true);
     document.querySelector("#pageArea").appendChild(newContent);
 }
+
+function loadMainMenu() {
+    loadPage("menu");
+    document.querySelector('#mbgame').addEventListener("click", loadGamesPage);
+}
+
+window.addEventListener("load", setUp);
