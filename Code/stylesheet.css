@@ -1,4 +1,142 @@
+header {
+  display: flex;
+}
+
 body {
-    font-family: Arial, sans-serif;
-  }
+  background: #efe5dab7;
+}
+
+p {
+  color: #640E27;
+}
+
+header {
+  color: white;
+}
+
+
+
+.gamePage{
+  height: 100vh;
+  background-color: wheat;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+section {
+  display: grid;
+  grid-template-columns: repeat(4, 8rem);
+  grid-template-rows: repeat(4, 8rem);
+  grid-gap: 1rem;
+}
+
+.face,.back{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.back{
+  background-color: white;
   
+}
+
+/*
+.flip-card-container {
+  width: 300px;
+  height: 400px;
+  perspective: 1000px;
+}
+
+.flip-card {
+  width: 300px;
+  height: 400px;
+  position: absolute;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+.flip-card-container.flipped .flip-card {
+  transform: rotateY(180deg);
+}
+
+
+.flip-card-front, .flip-card-back {
+  width: 300px;
+  height: 400px;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  border-radius: 0.5rem;
+}
+
+.flip-card-front {
+  background-color: aqua;
+  color: #000000;
+  
+}
+
+.flip-card-back {
+  background-color: #640E27;
+  color: #ffffff;
+  transform:rotateY(180deg);
+}
+*/
+.mainTitle {
+    justify-content: center;
+    background-color: #640E27;
+    padding: 2%;
+    font-size: 100%;
+}
+
+.PageArea{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 100%;
+  
+}
+
+.mheader {
+  justify-content: center;
+  text-align: center;
+  padding: 2%;
+  }
+
+.navBar{  
+  background-color: transparent;
+  width: 100%;
+  flex-direction: column;
+}
+
+.navbutton {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  font-size: 20px;
+  border-radius: 50%;
+}
+
+.menubutton{
+  border-radius: 40%/250%;
+  padding: 10px;
+  border: none;
+  font: inherit;
+  color: #000000;
+  cursor: pointer;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  font-size: 30px;
+}

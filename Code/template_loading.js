@@ -1,6 +1,8 @@
 function setUp() {
     loadMainMenu();
-
+    document.querySelector('#navDiary').addEventListener("click", loadDiaryPage);
+    document.querySelector('#navGame').addEventListener("click", loadGamesPage);
+    document.querySelector('#navMenu').addEventListener("click", loadMenuPage);
 }
 
 
@@ -20,7 +22,25 @@ function loadPage(pageID) {
 
 function loadMainMenu() {
     loadPage("menu");
-    document.querySelector('#mbgame').addEventListener("click", loadGamesPage);
+    document.querySelector('#mGame').addEventListener("click", loadGamesPage);
+    document.querySelector('#mDiary').addEventListener("click", loadDiaryPage);
+    document.querySelector('#mReminder').addEventListener("click", loadReminderPage);
+}
+
+function loadGamesPage() {
+    loadPage("Game");
+}
+
+function loadMenuPage() {
+    loadPage("Menu")
+}
+
+function loadDiaryPage(){
+    loadPage("Diary")
+}
+
+function loadReminderPage(){
+    loadPage("Reminder")
 }
 
 window.addEventListener("load", setUp);
