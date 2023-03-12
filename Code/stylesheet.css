@@ -1,4 +1,139 @@
+header {
+    display: flex;
+}
+
 body {
-    font-family: Arial, sans-serif;
-  }
-  
+    background: #efe5dab7;
+}
+
+p {
+    color: #640E27;
+}
+
+header {
+    color: white;
+}
+
+.navBar {
+    text-align: center;
+    background-color: #000000;
+    overflow: hidden;
+}
+
+.gamePage {
+    height: 100vh;
+    background-color: wheat;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+section {
+    display: grid;
+    grid-template-columns: repeat(4, 11rem);
+    grid-template-rows: repeat(4, 11rem);
+    grid-gap: 1rem;
+    perspective: 800px;
+}
+
+.card {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: all 2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px;
+}
+
+.face,
+.back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    pointer-events: none;
+}
+
+.back {
+    background-color: white;
+    backface-visibility: hidden;
+}
+
+.toggleCard {
+    transform: rotateY(180deg);
+}
+
+.mainTitle {
+    justify-content: center;
+    background-color: #640E27;
+    padding: 2%;
+    font-size: 100%;
+}
+
+.PageArea {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 100%;
+}
+
+.mheader {
+    justify-content: center;
+    text-align: center;
+    padding: 2%;
+}
+
+.navBar {
+    position: fixed;
+    bottom: 0;
+    justify-content: center;
+    text-align: center;
+    background-color: #000000;
+    overflow: hidden;
+    width: 100%;
+    height: 50px;
+}
+
+.navButton {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0 20px;
+    transition: all 0.2s ease-in-out;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.navButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.navButton:active {
+    transform: translateY(0px);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.menubutton {
+    margin: 10px;
+    border-radius: 40%/250%;
+    padding: 10px 20px;
+    border: 2px solid #000000;
+    font: inherit;
+    color: #000000;
+    cursor: pointer;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    font-size: 24px;
+    transition: all 0.2s ease-in-out;
+}
+
+.menubutton:hover {
+    background-color: #000000;
+    color: #ffffff;
+}

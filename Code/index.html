@@ -11,22 +11,48 @@
 </head>
 
 <body>
-    <header>Memory Games</header>
-    </body>
-<div id="pageArea" class="pageArea"> </div>
+    <header class="mainTitle">APP NAME</header>
+</body>
 
-<template id ="Login">
+<div id="pageArea" class="pageArea">
 
-</template>
+</div>
+
+<template id="Login"></template>
+
+<div id="navBar" class="navBar">
+    <button type="button" class="navButton" id="navMenu">Menu</button>
+    <button type="button" class="navButton" id="navGame">Games</button>
+    <button type="button" class="navButton" id="navDairy">Diary</button>
+    <button type="button" class="navButton" id="navReminder">Set Reminder</button>
+</div>
 
 <template id="menu">
     <h1 id="mheader" class="mheader">Menu</h1>
-    <button type="button" class="menubutton" id="mbgame">Play Memory Games</button>
-    <button type="button" class="menubutton" id="mbdiary">Diary</button>
-    <button type="button" class="menubutton" id="mbreminder">Set reminder</button>
+    <button type="button" class="menubutton" id="mGame">Play Memory Games</button>
+    <button type="button" class="menubutton" id="mDiary">Diary</button>
+    <button type="button" class="menubutton" id="mReminder">Set reminder</button>
+
 </template>
 
 
-</body>
+
+<template id="Game">
+    <div class="gamePage">
+    <h1>Lives: <span class="playerLivesCount"></span></h1>
+    <section></section>
+    <script src="app.js"></script>
+    </div>
+</template>
+
+<template id="Diary">
+
+    <h1>Diary Page</h1>
+
+</template>
+
+<template id="Reminder">
+    <h1>Reminder Page</h1>
+</template>
 
 </html>
