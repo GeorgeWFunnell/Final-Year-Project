@@ -18,13 +18,15 @@
 
 </div>
 
-<template id="Login"></template>
-
 <div id="navBar" class="navBar">
     <button type="button" class="navButton" id="navMenu">Menu</button>
     <button type="button" class="navButton" id="navGame">Games</button>
     <button type="button" class="navButton" id="navDairy">Diary</button>
     <button type="button" class="navButton" id="navReminder">Set Reminder</button>
+    <button type="button" class="navButton" id="navLogin" disabled="true" onclick="login()">Login</button>
+    <button type="button" class="navButton" id="navLogout" disabled="true" onclick="logout()">Logout</button>
+    <script src="https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.js"></script>
+    <script src="Auth0.js"></script>
 </div>
 
 <template id="menu">
