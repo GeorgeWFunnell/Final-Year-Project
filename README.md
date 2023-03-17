@@ -1,7 +1,7 @@
 # Final-Year-Project
 Final Year Project
 
-##How to run the webserver
+## How to run the webserver
 
 1: Open VS Code(AppsAnywhere), and select Clone repository.
 2: Select a new folder.
