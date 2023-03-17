@@ -1,28 +1,31 @@
 header {
     display: flex;
+    color: white;
+    background-color: #b721ff;
+    /* deep purple */
 }
 
 body {
-    background: #efe5dab7;
+    background-color: #f7f1e3;
+    /* light beige */
 }
 
 p {
-    color: #640E27;
-}
-
-header {
-    color: white;
+    color: #1d3557;
+    /* dark blue */
 }
 
 .navBar {
     text-align: center;
-    background-color: #000000;
+    background-color: #1d3557;
+    /* dark blue */
     overflow: hidden;
 }
 
 .gamePage {
     height: 100vh;
-    background-color: wheat;
+    background-color: #f7f1e3;
+    /* light beige */
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -53,7 +56,8 @@ section {
 }
 
 .back {
-    background-color: white;
+    background-color: #ebebeb;
+    /* light gray */
     backface-visibility: hidden;
 }
 
@@ -63,7 +67,8 @@ section {
 
 .mainTitle {
     justify-content: center;
-    background-color: #640E27;
+    background-color: #1d3557;
+    /* dark blue */
     padding: 2%;
     font-size: 100%;
 }
@@ -86,7 +91,7 @@ section {
     bottom: 0;
     justify-content: center;
     text-align: center;
-    background-color: #000000;
+    background-color: #00203FFF;
     overflow: hidden;
     width: 100%;
     height: 50px;
@@ -95,23 +100,28 @@ section {
 .navButton {
     font-size: 20px;
     font-weight: bold;
-    color: white;
-    background-color: transparent;
+    color: #FFFFFF;
+    background-color: #FFA700FF;
     border: none;
     cursor: pointer;
     padding: 0 20px;
     transition: all 0.2s ease-in-out;
     text-transform: uppercase;
     letter-spacing: 1px;
+    margin: 0 10px;
+    border-radius: 20px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
 }
 
 .navButton:hover {
     transform: translateY(-2px);
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+    background-color: #0072C6FF;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.6);
 }
 
 .navButton:active {
     transform: translateY(0px);
+    background-color: #00203FFF;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
@@ -119,11 +129,11 @@ section {
     margin: 10px;
     border-radius: 40%/250%;
     padding: 10px 20px;
-    border: 2px solid #000000;
+    border: 2px solid #2d4059;
     font: inherit;
-    color: #000000;
+    color: #2d4059;
     cursor: pointer;
-    background-color: #ffffff;
+    background-color: #f4f4f4;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -134,6 +144,7 @@ section {
 }
 
 .menubutton:hover {
-    background-color: #000000;
-    color: #ffffff;
+    background-color: #e07a5f;
+    color: #f4f4f4;
+    border-color: #e07a5f;
 }

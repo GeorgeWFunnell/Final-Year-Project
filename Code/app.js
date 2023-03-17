@@ -109,3 +109,20 @@ const checkCards = (e) => {
 
 
 cardGenerator();
+
+let createAuth0Client = null;
+
+const fetchAuthConfig = () => fetch("/auth_config.json");
+
+const configureClient = async() => {
+    const response = await fetchAuthConfig();
+    const config = await response.json();
+
+    auth0Client = await auth0.createAuth0Client({
+        domain: config.domain,
+        clientId: config.clientId
+    });
+};
+
+// Call the configureClient function directly
+configureClient();

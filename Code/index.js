@@ -1,7 +1,6 @@
-window.onload = function() {
-    const section = document.querySelector("section")
-    const playerLivesCount = document.querySelector("span")
-    const playerLives = 6;
+import { createAuth0Client } from '@auth0/auth0-spa-js';
+
+/*window.onload = function() {
 
 
 
@@ -14,7 +13,8 @@ window.onload = function() {
 
 
 
-    /*const card = document.querySelector(".flip-card-container");
+
+    const card = document.querySelector(".flip-card-container");
     const timer = document.querySelector(".timer");
 
     var time = 5;
@@ -28,5 +28,5 @@ window.onload = function() {
             clearInterval(iv);
             console.log("error")
         }
-    }, 1000); */
-}
+    }, 1000); 
+}*/
