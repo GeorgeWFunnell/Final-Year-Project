@@ -3,7 +3,7 @@ Final Year Project
 
 ## How to run the webserver
 
-1: Open VS Code(AppsAnywhere), and select Clone repository.
+1: Open VS Code(AppsAnywhere), and select Clone repository. Copy and paste "https://github.com/UP2013395/Final-Year-Project.git" into the field.
 2: Select a new folder.
 3: Open node.js(latest version on AppsAnywhere is good)
 4: Go back to VS Code, open the terminal and type 'npm i' (This should install the required node modules)
