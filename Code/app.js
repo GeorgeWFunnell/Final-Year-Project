@@ -5,22 +5,22 @@ let playerLives = 8;
 playerLivesCount.textContent = playerLives;
 
 const getData = () => [
-    { imgSrc: "./images/Apple.png", name: "Apple" },
-    { imgSrc: "./images/Banana.png", name: "Banana" },
-    { imgSrc: "./images/Kiwi.png", name: "Kiwi" },
+    { imgSrc: "./images/apple.png", name: "Apple" },
+    { imgSrc: "./images/banana.png", name: "Banana" },
+    { imgSrc: "./images/blueberry.png", name: "Blueberry" },
     { imgSrc: "./images/Lemon.png", name: "Lemon" },
     { imgSrc: "./images/Orange.png", name: "Orange" },
     { imgSrc: "./images/Pear.png", name: "Pear" },
-    { imgSrc: "./images/Strawberry.png", name: "Strawberry" },
-    { imgSrc: "./images/Tomato.png", name: "Tomato" },
-    { imgSrc: "./images/Apple.png", name: "Apple" },
-    { imgSrc: "./images/Banana.png", name: "Banana" },
-    { imgSrc: "./images/Kiwi.png", name: "Kiwi" },
+    { imgSrc: "./images/raspberry.png", name: "Raspberry" },
+    { imgSrc: "./images/cherry.png", name: "Cherry" },
+    { imgSrc: "./images/apple.png", name: "Apple" },
+    { imgSrc: "./images/banana.png", name: "Banana" },
+    { imgSrc: "./images/blueberry.png", name: "Blueberry" },
     { imgSrc: "./images/Lemon.png", name: "Lemon" },
     { imgSrc: "./images/Orange.png", name: "Orange" },
     { imgSrc: "./images/Pear.png", name: "Pear" },
-    { imgSrc: "./images/Strawberry.png", name: "Strawberry" },
-    { imgSrc: "./images/Tomato.png", name: "Tomato" }
+    { imgSrc: "./images/raspberry.png", name: "Raspberry" },
+    { imgSrc: "./images/cherry.png", name: "Cherry" }
 ];
 
 const randomize = () => {
@@ -32,7 +32,6 @@ const randomize = () => {
 const cardGenerator = () => {
     //gets random images for cards
     const cardData = randomize();
-
     //creates cards
     cardData.forEach((item) => {
 
@@ -53,41 +52,50 @@ const cardGenerator = () => {
         //toggles card when clicked 
         card.addEventListener("click", (e) => {
             card.classList.toggle("toggleCard");
-            checkCards(e);
+            card.style.pointerEvents = "none"
+            checkCards(e, cardData);
         });
-        cardData.forEach((item) => {
-
-            card.classList.toggle("toggleCard");
+        cardData.forEach(() => {
+            card.classList.add("toggleCard");
+            card.style.pointerEvents = "none"
         })
     });
-
-
 
     setTimeout(() => {
         const cards = document.querySelectorAll(".card");
         cards.forEach((card) => {
-            card.classList.remove("flipped");
+            card.classList.remove("toggleCard");
+            card.style.pointerEvents = "all"
         });
-    }, 2000);
-
+    }, 4000);
 };
 
-const reset = (text) => {
+const clearCards = () => {
+    const section = document.querySelector("section");
+    section.innerHTML = "";
+}
+
+const reset = () => {
     let cardData = randomize();
     let faces = document.querySelectorAll(".face");
     let cards = document.querySelectorAll(".card");
+
     cardData.forEach((item, index) => {
         cards[index].classList.remove("toggleCard");
-        cards[index].style.pointerEvents = ("all");
-        faces[index].src = item.imgSrc;
-        cards[index].setAttribute("name", item.name);
+        setTimeout(() => {
+            cards[index].style.pointerEvents = ("all");
+            faces[index].src = item.imgSrc;
+            cards[index].setAttribute("name", item.name);
+            section.style.pointerEvents = "all";
+        }, 1000)
     });
     playerLives = 8;
     playerLivesCount.textContent = playerLives;
-    setTimeout(() => window.alert(text), 1000)
+
 };
+
 //Checks if cards are clicked
-const checkCards = (e) => {
+const checkCards = (e, cardData) => {
     const clickedCard = e.target; //gets data of card
     clickedCard.classList.add("flipped");
     const flippedCards = document.querySelectorAll(".flipped");
@@ -105,25 +113,32 @@ const checkCards = (e) => {
             console.log("wrong");
             flippedCards.forEach(card => {
                 card.classList.remove("flipped");
-                setTimeout(() => card.classList.remove("toggleCard"), 1000);
+                setTimeout(() => {
+                    card.classList.remove("toggleCard")
+                    card.style.pointerEvents = "all"
+                }, 1000);
             })
             playerLives--;
             playerLivesCount.textContent = playerLives;
             if (playerLives === 0) {
-                reset();
+                section.style.pointerEvents = "none";
+                window.alert("You lose");
+                setTimeout(() => { reset(); }, 2000)
                 playerLives = 8;
             };
         };
     };
     if (toggleCard.length === 16) {
-        reset("good job bro");
+
+        section.style.pointerEvents = "none";
+        window.alert("YOU WIN!!!!");
+        setTimeout(() => { reset(); }, 5000)
     };
 };
 
-
-
 cardGenerator();
 /*
+
 let createAuth0Client = null;
 
 const fetchAuthConfig = () => fetch("/auth_config.json");

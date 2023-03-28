@@ -7,6 +7,7 @@
     <title>Memory Games</title>
     <link rel="stylesheet" href="stylesheet.css">
     <script src="index.js" type="module"></script>
+    <script src="app.js"></script>
     <script src="./template_loading.js" type="module"></script>
 </head>
 
@@ -34,16 +35,17 @@
     <button type="button" class="menubutton" id="mGame">Play Memory Games</button>
     <button type="button" class="menubutton" id="mDiary">Diary</button>
     <button type="button" class="menubutton" id="mReminder">Set reminder</button>
-
 </template>
 
-
+<template id="start-button">
+   <button class="start-button">Start</button>
+ </template>
 
 <template id="Game">
     <div class="gamePage">
     <h1>Lives: <span class="playerLivesCount"></span></h1>
     <section></section>
-    <script src="app.js"></script>
+    
     </div>
 </template>
 

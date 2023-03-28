@@ -1,0 +1,16 @@
+@startuml SequenceDiagram Login
+actor User
+participant Auth0
+participant Application
+User -> Auth0 : Click log-in button(send rquest to Auth0)
+Auth0 -> User : Return Auth0 login page
+activate Auth0
+User -> Auth0 : Enter credentials
+Auth0 -> Auth0 : Validate credentials
+Auth0 -> Application : Confirmation
+deactivate Auth0
+activate Application
+
+Application -> User : Access app as logged-in user
+deactivate Application
+@enduml
