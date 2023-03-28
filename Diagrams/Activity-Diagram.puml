@@ -1,0 +1,27 @@
+@startuml Activity Diagram
+start
+:Display main menu;
+if (Player selects "Play Memory Game") then (yes)
+  :Start new game;
+  while (Game is not over) is (true)
+    :Display game board;
+    :Player selects card;
+    if (Cards match) then (yes)
+      :Keeps cards flipped;
+      if (Board all matched) then (yes)
+        :Display You Win screen;
+      endif
+    else (Cards do not match)
+      :Flipp cards back round;
+    endif
+  endwhile (Game is over)
+  :Display You Lose screen;
+elseif (Player selects "Diary") then (yes)
+  :Display Diary;
+elseif (Player selects "Reminder") then (yes)
+  :Display Reminder;
+elseif (Player selects "Quit Game") then (yes)
+  :End game;
+endif
+stop
+@enduml
