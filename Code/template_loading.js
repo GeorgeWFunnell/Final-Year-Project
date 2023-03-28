@@ -1,6 +1,6 @@
 function setUp() {
-    loadMainMenu();
     loadNavBar();
+    loadMainMenu();
 }
 
 
@@ -22,6 +22,8 @@ function loadNavBar() {
     document.querySelector('#navDiary').addEventListener("click", loadDiaryPage);
     document.querySelector('#navGame').addEventListener("click", loadGamesPage);
     document.querySelector('#navMenu').addEventListener("click", loadMainMenu);
+    document.querySelector('#navReminder').addEventListener("click", loadReminderPage);
+
 }
 
 function loadMainMenu() {
@@ -31,8 +33,10 @@ function loadMainMenu() {
     document.querySelector('#mReminder').addEventListener("click", loadReminderPage);
 }
 
+
 function loadGamesPage() {
     loadPage("Game");
+    cardGenerator();
 }
 
 function loadMenuPage() {
