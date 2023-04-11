@@ -11,6 +11,13 @@ Auth0 -> Application : Confirmation
 deactivate Auth0
 activate Application
 
-Application -> User : Access app as logged-in user
+alt If user has valid credentials
+
+Application -> User : Access to app as logged-in user
+
+else Else user does not have valid credentials
+
+Application -> User : Rejects access to app as logged-in user 
 deactivate Application
+end
 @enduml

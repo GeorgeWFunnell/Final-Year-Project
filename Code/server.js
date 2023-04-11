@@ -2,7 +2,7 @@ import path from 'path';
 import express from 'express';
 
 const app = express();
-const port = 8081;
+const port = 8080;
 const __dirname = path.dirname(new URL(
     import.meta.url).pathname);
 
@@ -12,9 +12,17 @@ app.use(express.static(path.join(__dirname, "public")));
 app.get("/auth_config.json", (req, res) => { res.sendFile(path.join(__dirname, "auth_config.json")); });
 app.get("/*", (_, res) => { res.sendFile(path.join(__dirname, "index.html")); });*/
 
+
+
+async function addDiary(req, res) {
+    const diaryID = req.params.ID;
+    const diaryText = req.params.text;
+    await db.addToDiary(diaryID, diaryText);
+    res.sendStatus(200);
+}
+
+
 app.listen(port, () => console.log(`Server listening on port ${port}`));
-
-
 
 /*
 import express from 'express';
