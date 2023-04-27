@@ -1,0 +1,15 @@
+-- Up
+
+CREATE TABLE DIARY (
+   ID INTEGER PRIMARY KEY AUTOINCREMENT,
+   Title TEXT,
+   Date DATE,
+   Diary Text
+)
+
+
+-- Down
+
+
+
+DROP TABLE Diary
