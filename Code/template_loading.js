@@ -1,4 +1,6 @@
-function setUp() {
+import { addDiaryInfo } from './diary.js';
+
+function onLoad() {
     loadNavBar();
     loadMainMenu();
 }
@@ -33,22 +35,35 @@ function loadMainMenu() {
     document.querySelector('#mReminder').addEventListener("click", loadReminderPage);
 }
 
+async function loadEntryPage(){
+   loadPage("Entry");
+   await showDiaryEntries();
+}
 
 function loadGamesPage() {
     loadPage("Game");
-    cardGenerator();
-}
-
-function loadMenuPage() {
-    loadPage("Menu")
 }
 
 function loadDiaryPage() {
     loadPage("Diary")
+    document.querySelector('#addToDiary').addEventListener("click", addDiaryInfo);
+    document.querySelector('#viewEntries').addEventListener("click", loadEntryPage);
 }
 
 function loadReminderPage() {
     loadPage("Reminder")
 }
 
-window.addEventListener("load", setUp);
+async function showDiaryEntries(){
+   clearBody('.diaryArea');
+   const div = document.querySelector(".diaryArea");
+   let diaryEntry = await fetch("allDiary");
+   diaryEntry = await diaryEntry.json();
+   for (let diary of diaryEntry){
+      const diaryInfo = document.childElement("p");
+      diaryInfo.textContent = JSON.stringify(diary)
+      div.append(diaryInfo)
+   }
+}
+
+window.addEventListener("load", onLoad);

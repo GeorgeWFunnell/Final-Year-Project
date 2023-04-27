@@ -32,6 +32,7 @@ const randomize = () => {
 const cardGenerator = () => {
     //gets random images for cards
     const cardData = randomize();
+
     //creates cards
     cardData.forEach((item) => {
 
@@ -137,21 +138,3 @@ const checkCards = (e, cardData) => {
 };
 
 cardGenerator();
-/*
-
-let createAuth0Client = null;
-
-const fetchAuthConfig = () => fetch("/auth_config.json");
-
-const configureClient = async() => {
-    const response = await fetchAuthConfig();
-    const config = await response.json();
-
-    auth0Client = await auth0.createAuth0Client({
-        domain: config.domain,
-        clientId: config.clientId
-    });
-};
-
-// Call the configureClient function directly
-configureClient();*/

@@ -70,7 +70,7 @@ section {
     background-color: #1d3557;
     /* dark blue */
     padding: 2%;
-    font-size: 100%;
+    font-size: 300%;
 }
 
 .PageArea {
@@ -149,4 +149,21 @@ section {
     border-color: #e07a5f;
 }
 
-.form {}
+
+.form {
+   width: 100%;
+   height: 200px;
+   padding: 10px;
+   font-size: 16px;
+   color: #000000; /* Set the color to your desired theme color */
+   background-color: #ffffff; /* Set the background color to your desired theme color */
+   border: #000000;
+ }
+ 
+ .form:focus {
+   outline: none;
+ }
+ 
+ .form::placeholder {
+   color: #999999; /* Set the placeholder color to your desired theme color */
+ }
