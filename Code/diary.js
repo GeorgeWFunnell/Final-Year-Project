@@ -9,6 +9,6 @@ export async function addDiaryInfo() {
       console.log("ERROR, Diary undefined");
    }
 
-   let diary = await fetch("add/" + diary.ID + "/" + diaryContent.text);
+   let diary = await fetch("add/" + diaryName.ID + "/" + diaryContent.text);
    diary = await diary.json();
 }
