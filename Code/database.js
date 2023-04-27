@@ -5,7 +5,10 @@ import sqlite3 from 'sqlite3';
 
 async function init() {
 
-    const db = await open({ filename: "./app/Diary_Database.sqlite", driver: sqlite3.Database });
+    const db = await open({
+      filename: "./app/Diary_Database.sqlite",
+      driver: sqlite3.Database,
+      mode: sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE});
     await db.migrate({ migrationsPath: "./app/Migrations" });
     return db;
 }
@@ -22,3 +25,4 @@ export async function returnDiary() {
    const db = await dbConn;
    return db.get('SELECT * FROM DIARY');
 }
+

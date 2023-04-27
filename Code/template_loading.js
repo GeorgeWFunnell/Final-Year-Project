@@ -42,6 +42,7 @@ async function loadEntryPage(){
 
 function loadGamesPage() {
     loadPage("Game");
+    window.globalThis.prepareGame();
 }
 
 function loadDiaryPage() {

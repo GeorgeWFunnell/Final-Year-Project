@@ -1,26 +1,35 @@
-const section = document.querySelector("section");
-const playerLivesCount = document.querySelector("span");
-let playerLives = 8;
 
-playerLivesCount.textContent = playerLives;
+let playerLivesCount;
+let section;
+let playerLives;
+
+window.globalThis.prepareGame = ()=>{
+    section = document.querySelector("section");
+    playerLivesCount = document.querySelector("span");
+    playerLives = 8;
+    playerLivesCount.textContent = playerLives;
+
+    cardGenerator();
+};
+
 
 const getData = () => [
-    { imgSrc: "./images/apple.png", name: "Apple" },
-    { imgSrc: "./images/banana.png", name: "Banana" },
-    { imgSrc: "./images/blueberry.png", name: "Blueberry" },
+    { imgSrc: "./images/Apple.png", name: "Apple" },
+    { imgSrc: "./images/Banana.png", name: "Banana" },
+    { imgSrc: "./images/Blueberry.png", name: "Blueberry" },
     { imgSrc: "./images/Lemon.png", name: "Lemon" },
     { imgSrc: "./images/Orange.png", name: "Orange" },
     { imgSrc: "./images/Pear.png", name: "Pear" },
-    { imgSrc: "./images/raspberry.png", name: "Raspberry" },
-    { imgSrc: "./images/cherry.png", name: "Cherry" },
-    { imgSrc: "./images/apple.png", name: "Apple" },
-    { imgSrc: "./images/banana.png", name: "Banana" },
-    { imgSrc: "./images/blueberry.png", name: "Blueberry" },
+    { imgSrc: "./images/Raspberry.png", name: "Raspberry" },
+    { imgSrc: "./images/Cherry.png", name: "Cherry" },
+    { imgSrc: "./images/Apple.png", name: "Apple" },
+    { imgSrc: "./images/Banana.png", name: "Banana" },
+    { imgSrc: "./images/Blueberry.png", name: "Blueberry" },
     { imgSrc: "./images/Lemon.png", name: "Lemon" },
     { imgSrc: "./images/Orange.png", name: "Orange" },
     { imgSrc: "./images/Pear.png", name: "Pear" },
-    { imgSrc: "./images/raspberry.png", name: "Raspberry" },
-    { imgSrc: "./images/cherry.png", name: "Cherry" }
+    { imgSrc: "./images/Raspberry.png", name: "Raspberry" },
+    { imgSrc: "./images/Cherry.png", name: "Cherry" }
 ];
 
 const randomize = () => {
@@ -136,5 +145,3 @@ const checkCards = (e, cardData) => {
         setTimeout(() => { reset(); }, 5000)
     };
 };
-
-cardGenerator();

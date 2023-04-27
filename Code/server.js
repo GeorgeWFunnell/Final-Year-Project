@@ -9,6 +9,8 @@ const __dirname = path.dirname(new URL(
 
 app.use(express.static("Code", { extensions: ['html'] }));
 
+app.use("/images", express.static("Code/Images", { extensions: ['html'] }));
+
 
 function asyncWrap(func) {
    return (req, res, next) => {
