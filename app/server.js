@@ -5,9 +5,15 @@ import * as db from "./database.js"
 const app = express();
 const port = 8080;
 
-app.use(express.static("app", { extensions: ['html'] }));
+app.use((req, res, next) => {
+   res.set('Cache-Control', 'no-store')
+   next()
+});
 
-app.use("/images", express.static("app/Images", { extensions: ['html'] }));
+app.use(express.static("app", { extensions: ['html'], etag: false }));
+
+app.use("/images", express.static("app/Images", { extensions: ['html'], etag: false }));
+
 
 
 function asyncWrap(func) {

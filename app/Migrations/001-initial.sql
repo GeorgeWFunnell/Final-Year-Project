@@ -7,9 +7,7 @@ CREATE TABLE DIARY (
    Diary Text
 )
 
-
 -- Down
-
 
 
 DROP TABLE Diary

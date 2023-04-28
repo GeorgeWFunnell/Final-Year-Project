@@ -3,65 +3,53 @@ let section;
 let playerLives;
 let dif;
 
-window.globalThis.prepareGame = ()=>{
+window.globalThis.prepareGame = (difficulty)=>{
     section = document.querySelector("section");
     playerLivesCount = document.querySelector("span");
     playerLives = 8;
     playerLivesCount.textContent = playerLives;
-
+    dif = difficulty;
     cardGenerator();
 };
 
-const getData1 = () => [
-   { imgSrc: "./images/Apple.png", name: "Apple" },
-   { imgSrc: "./images/Banana.png", name: "Banana" },
-   { imgSrc: "./images/Blueberry.png", name: "Blueberry" },
-   { imgSrc: "./images/Lemon.png", name: "Lemon" },
-   { imgSrc: "./images/Apple.png", name: "Apple" },
-   { imgSrc: "./images/Banana.png", name: "Banana" },
-   { imgSrc: "./images/Blueberry.png", name: "Blueberry" },
-   { imgSrc: "./images/Lemon.png", name: "Lemon" },
-];
+const getData = (difficulty) => {
+   const images = [
+       { imgSrc: "./images/Apple.png", name: "Apple" },
+       { imgSrc: "./images/Banana.png", name: "Banana" },
+       { imgSrc: "./images/Blueberry.png", name: "Blueberry" },
+       { imgSrc: "./images/Lemon.png", name: "Lemon" },
+       { imgSrc: "./images/Orange.png", name: "Orange" },
+       { imgSrc: "./images/Pear.png", name: "Pear" },
+       { imgSrc: "./images/Raspberry.png", name: "Raspberry" },
+       { imgSrc: "./images/Cherry.png", name: "Cherry" }
+   ];
+   
+   let image_count;
+   switch(difficulty){
+       case 0:
+           image_count = 4;
+           break;
+       case 1:
+           image_count = 6;
+           break;
+       default:
+           image_count = 8;
+   }
 
-
-const getData2 = () => [
-   { imgSrc: "./images/Apple.png", name: "Apple" },
-   { imgSrc: "./images/Banana.png", name: "Banana" },
-   { imgSrc: "./images/Blueberry.png", name: "Blueberry" },
-   { imgSrc: "./images/Lemon.png", name: "Lemon" },
-   { imgSrc: "./images/Orange.png", name: "Orange" },
-   { imgSrc: "./images/Pear.png", name: "Pear" },
-   { imgSrc: "./images/Apple.png", name: "Apple" },
-   { imgSrc: "./images/Banana.png", name: "Banana" },
-   { imgSrc: "./images/Blueberry.png", name: "Blueberry" },
-   { imgSrc: "./images/Lemon.png", name: "Lemon" },
-   { imgSrc: "./images/Orange.png", name: "Orange" },
-   { imgSrc: "./images/Pear.png", name: "Pear" },
-];
-
-
-const getData3 = () => [
-    { imgSrc: "./images/Apple.png", name: "Apple" },
-    { imgSrc: "./images/Banana.png", name: "Banana" },
-    { imgSrc: "./images/Blueberry.png", name: "Blueberry" },
-    { imgSrc: "./images/Lemon.png", name: "Lemon" },
-    { imgSrc: "./images/Orange.png", name: "Orange" },
-    { imgSrc: "./images/Pear.png", name: "Pear" },
-    { imgSrc: "./images/Raspberry.png", name: "Raspberry" },
-    { imgSrc: "./images/Cherry.png", name: "Cherry" },
-    { imgSrc: "./images/Apple.png", name: "Apple" },
-    { imgSrc: "./images/Banana.png", name: "Banana" },
-    { imgSrc: "./images/Blueberry.png", name: "Blueberry" },
-    { imgSrc: "./images/Lemon.png", name: "Lemon" },
-    { imgSrc: "./images/Orange.png", name: "Orange" },
-    { imgSrc: "./images/Pear.png", name: "Pear" },
-    { imgSrc: "./images/Raspberry.png", name: "Raspberry" },
-    { imgSrc: "./images/Cherry.png", name: "Cherry" }
-];
+   console.log(image_count);
+   
+   let imageData = [];
+   for (let i = 0; i < 2; i++) {
+       for (let j = 0; j < image_count; j++){
+           imageData.push(images[j]);
+       }
+   }
+   return imageData;
+}
 
 
 const randomize = () => {
-   const cardData = getData3();
+   const cardData = getData(dif);
    cardData.sort(() => Math.random() - 0.5);
    return cardData;
 };
@@ -116,7 +104,7 @@ const clearCards = () => {
 }
 
 const reset = () => {
-    let cardData = randomize();
+    let cardData = randomize(dif);
     let faces = document.querySelectorAll(".face");
     let cards = document.querySelectorAll(".card");
 
@@ -168,7 +156,7 @@ const checkCards = (e, cardData) => {
             };
         };
     };
-    if (toggleCard.length === 16) {
+    if (toggleCard.length === cardData.length){
 
         section.style.pointerEvents = "none";
         setTimeout(() => window.alert("YOU WIN!!!!"), 1000);
