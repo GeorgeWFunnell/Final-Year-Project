@@ -25,12 +25,12 @@ function loadNavBar() {
     document.querySelector('#navGame').addEventListener("click", loadGamesPage);
     document.querySelector('#navMenu').addEventListener("click", loadMainMenu);
     document.querySelector('#navReminder').addEventListener("click", loadReminderPage);
-
+    document.querySelector('#navHelpPage').addEventListener("click", loadHelpPage);
 }
 
 function loadMainMenu() {
     loadPage("menu");
-    document.querySelector('#mGame').addEventListener("click", loadGamesPage);
+    document.querySelector('#mGame').addEventListener("click", loadDifficultyPage);
     document.querySelector('#mDiary').addEventListener("click", loadDiaryPage);
     document.querySelector('#mReminder').addEventListener("click", loadReminderPage);
 }
@@ -38,6 +38,32 @@ function loadMainMenu() {
 async function loadEntryPage(){
    loadPage("Entry");
    await showDiaryEntries();
+}
+
+function loadHelpPage(){
+   window.location.assign("https://www.nhs.uk/conditions/dementia/help-and-support/")
+}
+
+function loadDifficultyPage(){
+   loadPage("difficultyPage");
+   document.querySelector('#easyDif').addEventListener("click", loadEasyPage);
+   document.querySelector('#mediumDif').addEventListener("click", loadMediumPage);
+   document.querySelector('#hardDif').addEventListener("click", loadHardPage);
+}
+
+function loadEasyPage(){
+   loadGamesPage();
+   const x = 1;
+}
+
+function loadMediumPage(){
+   loadGamesPage();
+   const x = 1;
+}
+
+function loadHardPage(){
+   loadGamesPage();
+   const x = 1;
 }
 
 function loadGamesPage() {
@@ -55,15 +81,20 @@ function loadReminderPage() {
     loadPage("Reminder")
 }
 
+
+
 async function showDiaryEntries(){
+   console.log("Fetching diary entries...");
    clearBody('.diaryArea');
    const div = document.querySelector(".diaryArea");
    let diaryEntry = await fetch("allDiary");
+   console.log("diaryEntry:", diaryEntry);
    diaryEntry = await diaryEntry.json();
+   console.log("parsed diaryEntry:", diaryEntry);
    for (let diary of diaryEntry){
-      const diaryInfo = document.childElement("p");
-      diaryInfo.textContent = JSON.stringify(diary)
-      div.append(diaryInfo)
+      const diaryInfo = document.createElement("p");
+      diaryInfo.textContent = JSON.stringify(diary);
+      div.append(diaryInfo);
    }
 }
 

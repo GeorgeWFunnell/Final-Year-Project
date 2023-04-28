@@ -1,14 +1,14 @@
 export async function addDiaryInfo() {
    // retrieves information
-   const diaryTitle = document.querySelector('').value;
+   const diaryTitle = document.querySelector('#diaryTitle').value;
    const diaryContent = document.querySelector('#addTxt').value;
-   let diaryName = await fetch("find/" + diaryTitle);
+   /*let diaryName = await fetch(diaryTitle);
    diaryName = await diary.json();
 
    if (diaryName == undefined){
       console.log("ERROR, Diary undefined");
-   }
+   }*/
 
-   let diary = await fetch("add/" + diaryName.ID + "/" + diaryContent.text);
-   diary = await diary.json();
+   await fetch("/add/" + diaryTitle + "/" + diaryContent);
+
 }

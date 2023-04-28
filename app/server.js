@@ -18,9 +18,9 @@ function asyncWrap(func) {
 }
 
 async function addDiary(req, res) {
-    const diaryID = req.params.ID;
+    const Title = req.params.text;
     const diaryText = req.params.text;
-    await db.addToDiary(diaryID, diaryText);
+    await db.addToDiary(Title, diaryText);
     res.sendStatus(200);
 }
 
@@ -29,13 +29,17 @@ async function findDiary(req, res){
    res.json(await db.findDiary(diaryTitle));
 }
 
-async function returnDiary(req, res){
+/*async function returnDiary(req, res){
    res.json(await db.returnDiary());
+}*/
+
+async function returnAllDiary(req, res){
+   res.json(await db.returnAllDiary());
 }
 
 app.get("/find/:name", asyncWrap(findDiary));
 app.get("/add/:ID/:text", asyncWrap(addDiary));
-app.get("/allDiary", asyncWrap(returnDiary));
+app.get("/allDiary", asyncWrap(returnAllDiary));
 
 app.listen(port, () => console.log(`Server listening on port ${port}`));
 
