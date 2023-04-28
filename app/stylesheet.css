@@ -154,24 +154,23 @@ section {
    margin-top: 1em;
    border-radius: 40%/250%;
    padding: 10px 20px;
-   border: 2px solid #2d4059;
-   font: inherit;
    color: #2d4059;
    cursor: pointer;
-   background-color: #f4f4f4;
+   background-color: #FFA700FF;
    display: flex;
    flex-direction: column;
+   font-weight:bold;
    align-items: center;
    justify-content: center;
    margin: auto;
-   font-size: 24px;
+   font-size: 20px;
    transition: all 0.2s ease-in-out;
 }
 
 .menubutton:hover {
-   background-color: #e07a5f;
+   background-color: #00203FFF;
    color: #f4f4f4;
-   border-color: #e07a5f;
+   border-color: #00203FFF;
 }
 
 

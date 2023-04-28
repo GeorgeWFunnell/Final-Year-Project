@@ -1,9 +1,9 @@
 let playerLivesCount;
 let section;
 let playerLives;
-let dif;
 
-window.globalThis.prepareGame = ()=>{
+
+window.globalThis.easyGameStartEasy = ()=>{
     section = document.querySelector("section");
     playerLivesCount = document.querySelector("span");
     playerLives = 8;
@@ -12,7 +12,7 @@ window.globalThis.prepareGame = ()=>{
     cardGenerator();
 };
 
-const getData1 = () => [
+const getData = () => [
    { imgSrc: "./images/Apple.png", name: "Apple" },
    { imgSrc: "./images/Banana.png", name: "Banana" },
    { imgSrc: "./images/Blueberry.png", name: "Blueberry" },
@@ -22,46 +22,9 @@ const getData1 = () => [
    { imgSrc: "./images/Blueberry.png", name: "Blueberry" },
    { imgSrc: "./images/Lemon.png", name: "Lemon" },
 ];
-
-
-const getData2 = () => [
-   { imgSrc: "./images/Apple.png", name: "Apple" },
-   { imgSrc: "./images/Banana.png", name: "Banana" },
-   { imgSrc: "./images/Blueberry.png", name: "Blueberry" },
-   { imgSrc: "./images/Lemon.png", name: "Lemon" },
-   { imgSrc: "./images/Orange.png", name: "Orange" },
-   { imgSrc: "./images/Pear.png", name: "Pear" },
-   { imgSrc: "./images/Apple.png", name: "Apple" },
-   { imgSrc: "./images/Banana.png", name: "Banana" },
-   { imgSrc: "./images/Blueberry.png", name: "Blueberry" },
-   { imgSrc: "./images/Lemon.png", name: "Lemon" },
-   { imgSrc: "./images/Orange.png", name: "Orange" },
-   { imgSrc: "./images/Pear.png", name: "Pear" },
-];
-
-
-const getData3 = () => [
-    { imgSrc: "./images/Apple.png", name: "Apple" },
-    { imgSrc: "./images/Banana.png", name: "Banana" },
-    { imgSrc: "./images/Blueberry.png", name: "Blueberry" },
-    { imgSrc: "./images/Lemon.png", name: "Lemon" },
-    { imgSrc: "./images/Orange.png", name: "Orange" },
-    { imgSrc: "./images/Pear.png", name: "Pear" },
-    { imgSrc: "./images/Raspberry.png", name: "Raspberry" },
-    { imgSrc: "./images/Cherry.png", name: "Cherry" },
-    { imgSrc: "./images/Apple.png", name: "Apple" },
-    { imgSrc: "./images/Banana.png", name: "Banana" },
-    { imgSrc: "./images/Blueberry.png", name: "Blueberry" },
-    { imgSrc: "./images/Lemon.png", name: "Lemon" },
-    { imgSrc: "./images/Orange.png", name: "Orange" },
-    { imgSrc: "./images/Pear.png", name: "Pear" },
-    { imgSrc: "./images/Raspberry.png", name: "Raspberry" },
-    { imgSrc: "./images/Cherry.png", name: "Cherry" }
-];
-
 
 const randomize = () => {
-   const cardData = getData3();
+   const cardData = getData();
    cardData.sort(() => Math.random() - 0.5);
    return cardData;
 };
@@ -168,10 +131,10 @@ const checkCards = (e, cardData) => {
             };
         };
     };
-    if (toggleCard.length === 16) {
+    if (toggleCard.length === 8) {
 
         section.style.pointerEvents = "none";
-        setTimeout(() => window.alert("YOU WIN!!!!"), 1000);
+        window.alert("YOU WIN!!!!");
         setTimeout(() => { reset(); }, 5000)
     };
 };

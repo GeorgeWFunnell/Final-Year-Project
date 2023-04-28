@@ -2,8 +2,8 @@
 
 CREATE TABLE DIARY (
    ID INTEGER PRIMARY KEY AUTOINCREMENT,
-   Title TEXT,
    Date DATE,
+   Title TEXT,
    Diary Text
 )
 

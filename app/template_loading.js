@@ -24,15 +24,14 @@ function loadNavBar() {
     document.querySelector('#navDiary').addEventListener("click", loadDiaryPage);
     document.querySelector('#navGame').addEventListener("click", loadGamesPage);
     document.querySelector('#navMenu').addEventListener("click", loadMainMenu);
-    document.querySelector('#navReminder').addEventListener("click", loadReminderPage);
     document.querySelector('#navHelpPage').addEventListener("click", loadHelpPage);
 }
 
 function loadMainMenu() {
     loadPage("menu");
-    document.querySelector('#mGame').addEventListener("click", loadDifficultyPage);
+    document.querySelector('#mGame').addEventListener("click", loadGamesPage);
     document.querySelector('#mDiary').addEventListener("click", loadDiaryPage);
-    document.querySelector('#mReminder').addEventListener("click", loadReminderPage);
+    document.querySelector('#mReminder').addEventListener("click", loadHelpPage);
 }
 
 async function loadEntryPage(){
@@ -42,28 +41,6 @@ async function loadEntryPage(){
 
 function loadHelpPage(){
    window.location.assign("https://www.nhs.uk/conditions/dementia/help-and-support/")
-}
-
-function loadDifficultyPage(){
-   loadPage("difficultyPage");
-   document.querySelector('#easyDif').addEventListener("click", loadEasyPage);
-   document.querySelector('#mediumDif').addEventListener("click", loadMediumPage);
-   document.querySelector('#hardDif').addEventListener("click", loadHardPage);
-}
-
-function loadEasyPage(){
-   loadGamesPage();
-   const x = 1;
-}
-
-function loadMediumPage(){
-   loadGamesPage();
-   const x = 1;
-}
-
-function loadHardPage(){
-   loadGamesPage();
-   const x = 1;
 }
 
 function loadGamesPage() {
