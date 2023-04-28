@@ -18,7 +18,7 @@ function asyncWrap(func) {
 }
 
 async function addDiary(req, res) {
-    const Title = req.params.text;
+    const Title = req.params.ID;
     const diaryText = req.params.text;
     await db.addToDiary(Title, diaryText);
     res.sendStatus(200);
@@ -42,4 +42,3 @@ app.get("/add/:ID/:text", asyncWrap(addDiary));
 app.get("/allDiary", asyncWrap(returnAllDiary));
 
 app.listen(port, () => console.log(`Server listening on port ${port}`));
-

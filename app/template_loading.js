@@ -32,11 +32,16 @@ function loadMainMenu() {
     document.querySelector('#mGame').addEventListener("click", loadGamesPage);
     document.querySelector('#mDiary').addEventListener("click", loadDiaryPage);
     document.querySelector('#mReminder').addEventListener("click", loadHelpPage);
+    document.querySelector('#mzoom').addEventListener("click", zoomIn);
 }
 
 async function loadEntryPage(){
    loadPage("Entry");
    await showDiaryEntries();
+}
+
+function zoomIn(){
+   document.body.style.zoom = "125%";
 }
 
 function loadHelpPage(){
@@ -50,16 +55,36 @@ function loadGamesPage() {
 
 function loadDiaryPage() {
     loadPage("Diary")
-    document.querySelector('#addToDiary').addEventListener("click", addDiaryInfo);
+    document.querySelector('#addToDiary').addEventListener("click", submitButton);
     document.querySelector('#viewEntries').addEventListener("click", loadEntryPage);
 }
 
-function loadReminderPage() {
-    loadPage("Reminder")
+
+
+function submitButton() {
+      window.alert("Success")
+      addDiaryInfo()
 }
 
-
-
+async function showDiaryEntries() {
+   console.log("Fetching diary entries...");
+   clearBody(".diaryArea");
+   const div = document.querySelector(".diaryArea");
+   let diaryEntries = await fetch("allDiary");
+   diaryEntries = await diaryEntries.json();
+   console.log("diaryEntries:", diaryEntries);
+   for (let diary of diaryEntries) {
+     const diaryInfo = document.createElement("div");
+     const diaryTitle = document.createElement("h3");
+     const diaryContent = document.createElement("p");
+     diaryTitle.textContent = diary.Title;
+     diaryContent.textContent = diary.Diary;
+     diaryInfo.appendChild(diaryTitle);
+     diaryInfo.appendChild(diaryContent);
+     div.appendChild(diaryInfo);
+   }
+ }
+/*
 async function showDiaryEntries(){
    console.log("Fetching diary entries...");
    clearBody('.diaryArea');
@@ -74,5 +99,5 @@ async function showDiaryEntries(){
       div.append(diaryInfo);
    }
 }
-
+*/
 window.addEventListener("load", onLoad);

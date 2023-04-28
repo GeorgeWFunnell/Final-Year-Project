@@ -172,6 +172,6 @@ const checkCards = (e, cardData) => {
 
         section.style.pointerEvents = "none";
         setTimeout(() => window.alert("YOU WIN!!!!"), 1000);
-        setTimeout(() => { reset(); }, 5000)
+        setTimeout(() => { reset(); }, 4000)
     };
 };

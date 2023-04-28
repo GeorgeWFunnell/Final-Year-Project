@@ -15,6 +15,20 @@ p {
 
 }
 
+.mainTitle {
+   color: #ffffff;
+   text-align: center;
+   font-size: 2rem;
+   font-weight: bold;
+   margin: 1rem;
+ }
+ 
+ @media only screen and (min-width: 768px) {
+   .mainTitle {
+     font-size: 3rem;
+   }
+ }
+
 .form {
   display: block;
   width: 100%;
