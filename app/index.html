@@ -24,6 +24,7 @@
     <button type="button" class="navButton" id="navGame">Games</button>
     <button type="button" class="navButton" id="navDiary">Diary</button>
     <button type="button" class="navButton" id="navReminder">Set Reminder</button>
+    <button type="button" class="navButton" id="navHelpPage">Help Page</button>
 </div>
 
 <template id="menu">
@@ -48,6 +49,10 @@
 <template id="Diary">
     <h1 class="mheader">Diary</h1>
     <div>
+      <label for="diaryTitle">Title:</label>
+      <input type="text" id="diaryTitle" class="form" />
+
+      <label for="diaryText">Text:</label>
       <textarea class="form" id="addTxt">
 
       </textarea>
@@ -57,8 +62,14 @@
 
 </template>
 
+<template id="difficultyPage">
+   <button type ="button" class="difficultyButton" id="easyDif">Easy Difficulty</button>
+   <button type ="button" class="difficultyButton" id="mediumDif">Medium Difficulty</button>
+   <button type ="button" class="difficultyButton" id="hardDif">Hard Difficulty</button>
+</template>
+
 <template id="Entry">
-   <h1>Entries</h1>
+   <h1 class="mheader">Entries</h1>
    <div class ="diaryArea">
       
    </div>

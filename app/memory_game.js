@@ -1,7 +1,7 @@
-
 let playerLivesCount;
 let section;
 let playerLives;
+import { x } from './template_loading';
 
 window.globalThis.prepareGame = ()=>{
     section = document.querySelector("section");
@@ -12,8 +12,35 @@ window.globalThis.prepareGame = ()=>{
     cardGenerator();
 };
 
+const getData1 = () => [
+   { imgSrc: "./images/Apple.png", name: "Apple" },
+   { imgSrc: "./images/Banana.png", name: "Banana" },
+   { imgSrc: "./images/Blueberry.png", name: "Blueberry" },
+   { imgSrc: "./images/Lemon.png", name: "Lemon" },
+   { imgSrc: "./images/Apple.png", name: "Apple" },
+   { imgSrc: "./images/Banana.png", name: "Banana" },
+   { imgSrc: "./images/Blueberry.png", name: "Blueberry" },
+   { imgSrc: "./images/Lemon.png", name: "Lemon" },
+];
 
-const getData = () => [
+
+const getData2 = () => [
+   { imgSrc: "./images/Apple.png", name: "Apple" },
+   { imgSrc: "./images/Banana.png", name: "Banana" },
+   { imgSrc: "./images/Blueberry.png", name: "Blueberry" },
+   { imgSrc: "./images/Lemon.png", name: "Lemon" },
+   { imgSrc: "./images/Orange.png", name: "Orange" },
+   { imgSrc: "./images/Pear.png", name: "Pear" },
+   { imgSrc: "./images/Apple.png", name: "Apple" },
+   { imgSrc: "./images/Banana.png", name: "Banana" },
+   { imgSrc: "./images/Blueberry.png", name: "Blueberry" },
+   { imgSrc: "./images/Lemon.png", name: "Lemon" },
+   { imgSrc: "./images/Orange.png", name: "Orange" },
+   { imgSrc: "./images/Pear.png", name: "Pear" },
+];
+
+
+const getData3 = () => [
     { imgSrc: "./images/Apple.png", name: "Apple" },
     { imgSrc: "./images/Banana.png", name: "Banana" },
     { imgSrc: "./images/Blueberry.png", name: "Blueberry" },
@@ -33,9 +60,22 @@ const getData = () => [
 ];
 
 const randomize = () => {
-    const cardData = getData();
+   console.log(x)
+   if (x == 1){
+    const cardData = getData1();
     cardData.sort(() => Math.random() - 0.5);
     return cardData;
+   }
+   else if (x == 2){
+      const cardData = getData2();
+    cardData.sort(() => Math.random() - 0.5);
+    return cardData;
+   }
+   else {
+      const cardData = getData3();
+    cardData.sort(() => Math.random() - 0.5);
+    return cardData;
+   }
 };
 
 const cardGenerator = () => {
