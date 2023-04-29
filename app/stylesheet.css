@@ -164,6 +164,29 @@ section {
    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
+.difButtons {
+   text-align: center;
+}
+
+.difficultyButtons {
+   display: inline-flex;
+   width: 200px;
+   height: 200px;
+   margin: 0 auto;
+   background-color: #0077be;
+   color: #fff;
+   font-size: 24px;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+   padding: 10px;
+   transition: background-color 0.2s ease-in-out;
+}
+
+.difficultyButtons:hover {
+   background-color: #005ea8;
+}
+
 .menubutton {
    margin: 10px;
    margin-top: 1em;

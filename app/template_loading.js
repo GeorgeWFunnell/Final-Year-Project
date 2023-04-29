@@ -32,7 +32,6 @@ function loadMainMenu() {
     document.querySelector('#mGame').addEventListener("click", loadDifficultyPage);
     document.querySelector('#mDiary').addEventListener("click", loadDiaryPage);
     document.querySelector('#mReminder').addEventListener("click", loadHelpPage);
-    document.querySelector('#mzoom').addEventListener("click", zoomIn);
 }
 
 async function loadEntryPage(){
@@ -40,9 +39,6 @@ async function loadEntryPage(){
    await showDiaryEntries();
 }
 
-function zoomIn(){
-   document.body.style.zoom = "125%";
-}
 
 function loadHelpPage(){
    window.location.assign("https://www.nhs.uk/conditions/dementia/help-and-support/")
@@ -69,17 +65,14 @@ function loadDiaryPage() {
 
 
 function submitButton() {
-      window.alert("Success")
       addDiaryInfo()
 }
 
 async function showDiaryEntries() {
-   console.log("Fetching diary entries...");
    clearBody(".diaryArea");
    const div = document.querySelector(".diaryArea");
    let diaryEntries = await fetch("allDiary");
    diaryEntries = await diaryEntries.json();
-   console.log("diaryEntries:", diaryEntries);
    for (let diary of diaryEntries) {
      const diaryInfo = document.createElement("div");
      const diaryTitle = document.createElement("h3");
@@ -91,20 +84,5 @@ async function showDiaryEntries() {
      div.appendChild(diaryInfo);
    }
  }
-/*
-async function showDiaryEntries(){
-   console.log("Fetching diary entries...");
-   clearBody('.diaryArea');
-   const div = document.querySelector(".diaryArea");
-   let diaryEntry = await fetch("allDiary");
-   console.log("diaryEntry:", diaryEntry);
-   diaryEntry = await diaryEntry.json();
-   console.log("parsed diaryEntry:", diaryEntry);
-   for (let diary of diaryEntry){
-      const diaryInfo = document.createElement("p");
-      diaryInfo.textContent = JSON.stringify(diary);
-      div.append(diaryInfo);
-   }
-}
-*/
+
 window.addEventListener("load", onLoad);

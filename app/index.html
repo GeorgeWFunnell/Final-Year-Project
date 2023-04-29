@@ -31,7 +31,6 @@
     <button type="button" class="menubutton" id="mGame">Play Memory Games</button>
     <button type="button" class="menubutton" id="mDiary">Diary</button>
     <button type="button" class="menubutton" id="mReminder">Help Page</button>
-    <button type="button" class="menubutton" id="mZoom">Zoom In</button>
 </template>
 
 <template id="start-button">
@@ -53,9 +52,7 @@
       <input type="text" id="diaryTitle" class="form" />
 
       <label for="diaryText">Text:</label>
-      <textarea class="form" id="addTxt">
-
-      </textarea>
+      <textarea class="form" id="addTxt"></textarea>
       <button type="button" class="menubutton" id="addToDiary">Submit</button>
       <button type="button" class="menubutton" id="viewEntries">View Entries</button>
     </div>
@@ -63,9 +60,11 @@
 </template>
 
 <template id="difficultyPage">
-   <button type ="button" class="difficultyButton" id="easyDif">Easy Difficulty</button>
-   <button type ="button" class="difficultyButton" id="mediumDif">Medium Difficulty</button>
-   <button type ="button" class="difficultyButton" id="hardDif">Hard Difficulty</button>
+   <div class = difButtons>
+      <button type ="button" class="difficultyButton" id="easyDif">Easy Difficulty</button>
+      <button type ="button" class="difficultyButton" id="mediumDif">Medium Difficulty</button>
+      <button type ="button" class="difficultyButton" id="hardDif">Hard Difficulty</button>
+   </div>
 </template>
 
 <template id="Entry">
