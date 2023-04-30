@@ -15,7 +15,7 @@ switch (Display Main Menu)
             :Start new game;
       endswitch   
       while (Game is not over) is (true)
-         switch (Lives equal 0)
+         switch (Lives greater than 0)
             case (True)
                :Player selects card;
                if (Cards match) then (yes)
