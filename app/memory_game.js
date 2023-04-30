@@ -35,8 +35,6 @@ const getData = (difficulty) => {
        default:
            image_count = 8;
    }
-
-   console.log(image_count);
    
    let imageData = [];
    for (let i = 0; i < 2; i++) {
@@ -103,25 +101,6 @@ const clearCards = () => {
     section.innerHTML = "";
 }
 
-const reset = () => {
-    let cardData = randomize(dif);
-    let faces = document.querySelectorAll(".face");
-    let cards = document.querySelectorAll(".card");
-
-    cardData.forEach((item, index) => {
-        cards[index].classList.remove("toggleCard");
-        setTimeout(() => {
-            cards[index].style.pointerEvents = ("all");
-            faces[index].src = item.imgSrc;
-            cards[index].setAttribute("name", item.name);
-            section.style.pointerEvents = "all";
-        }, 1000)
-    });
-    playerLives = 8;
-    playerLivesCount.textContent = playerLives;
-
-};
-
 //Checks if cards are clicked
 const checkCards = (e, cardData) => {
     const clickedCard = e.target; //gets data of card
@@ -132,13 +111,11 @@ const checkCards = (e, cardData) => {
 
     if (flippedCards.length === 2) {
         if (flippedCards[0].getAttribute("name") === flippedCards[1].getAttribute("name")) {
-            console.log("match");
             flippedCards.forEach(card => {
                 card.classList.remove("flipped");
                 card.style.pointerEvents = "none"
             });
         } else {
-            console.log("wrong");
             flippedCards.forEach(card => {
                 card.classList.remove("flipped");
                 setTimeout(() => {
@@ -162,4 +139,29 @@ const checkCards = (e, cardData) => {
         setTimeout(() => window.alert("YOU WIN!!!!"), 1000);
         setTimeout(() => { reset(); }, 4000)
     };
+};
+
+const reset = () => {
+   let cardData = randomize(dif);
+   let faces = document.querySelectorAll(".face");
+   let cards = document.querySelectorAll(".card");
+
+   cardData.forEach((item, index) => {
+       cards[index].classList.remove("toggleCard");
+       setTimeout(() => {
+           cards[index].style.pointerEvents = ("all");
+           faces[index].src = item.imgSrc;
+           cards[index].setAttribute("name", item.name);
+           section.style.pointerEvents = "all";
+       }, 1000)
+       
+   });
+
+   playerLives = 8;
+   playerLivesCount.textContent = playerLives;
+
+   cardData.forEach(() => {
+      card.classList.add("toggleCard");
+      card.style.pointerEvents = "none"
+  })
 };

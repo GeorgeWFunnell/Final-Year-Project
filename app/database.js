@@ -13,20 +13,25 @@ async function init() {
     return db;
 }
 
-const dbConn = init();
+const dbConnection = init();
 
 export async function addToDiary(Title, Diary){
-   const db = await dbConn;
+   const db = await dbConnection;
    const DATE = await db.get("SELECT datetime('now', 'localtime') as time");
    db.run('INSERT INTO DIARY (Date, Title, Diary) VALUES (?, ?, ?)', DATE.time, Title, Diary);
 }
 
 export async function returnDiary() {
-   const db = await dbConn;
+   const db = await dbConnection;
    return db.get('SELECT * FROM DIARY');
 }
 
+export async function removeDiaryFromDatabase(ID) {
+   const db = await dbConnection;
+   db.run('DELETE FROM DIARY WHERE ID = ?', ID)
+}
+
 export async function returnAllDiary() {
-   const db = await dbConn;
+   const db = await dbConnection;
    return db.all('SELECT * FROM DIARY');
 }
