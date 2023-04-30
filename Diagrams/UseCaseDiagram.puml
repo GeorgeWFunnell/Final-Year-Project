@@ -1,0 +1,17 @@
+@startuml
+start
+switch (Disply Main Menu)
+   case (Player selects Memory Game page)
+      switch (Player chooses difficulty)
+         case (Easy)
+            :Easy;
+         case (Medium)
+            :Medium;
+         case (Hard)
+            :hard;
+      endswitch
+   case (Player selects Diary Page)
+      :Diary;
+endswitch
+stop
+@enduml

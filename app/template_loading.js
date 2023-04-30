@@ -20,6 +20,13 @@ function loadPage(pageID) {
     document.querySelector("#pageArea").appendChild(newContent);
 }
 
+function loadMainMenu() {
+   loadPage("menu");
+   document.querySelector('#mGame').addEventListener("click", loadDifficultyPage);
+   document.querySelector('#mDiary').addEventListener("click", loadDiaryPage);
+   document.querySelector('#mReminder').addEventListener("click", loadHelpPage);
+}
+
 function loadNavBar() {
     document.querySelector('#navDiary').addEventListener("click", loadDiaryPage);
     document.querySelector('#navGame').addEventListener("click", loadDifficultyPage);
@@ -27,12 +34,7 @@ function loadNavBar() {
     document.querySelector('#navHelpPage').addEventListener("click", loadHelpPage);
 }
 
-function loadMainMenu() {
-    loadPage("menu");
-    document.querySelector('#mGame').addEventListener("click", loadDifficultyPage);
-    document.querySelector('#mDiary').addEventListener("click", loadDiaryPage);
-    document.querySelector('#mReminder').addEventListener("click", loadHelpPage);
-}
+
 
 async function loadEntryPage(){
    loadPage("Entry");
