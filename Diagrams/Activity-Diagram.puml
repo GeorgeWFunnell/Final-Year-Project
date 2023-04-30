@@ -15,16 +15,22 @@ switch (Display Main Menu)
             :Start new game;
       endswitch   
       while (Game is not over) is (true)
-         :Player selects card;
-         if (Cards match) then (yes)
-            :Keep cards flipped;
-            if (Cards all matched) then (yes)
-               :Display You Win screen;
-            endif
-         else (Cards do not match)
-            :Flip cards back round;
-         endif
+         switch (Lives equal 0)
+            case (True)
+               :Player selects card;
+               if (Cards match) then (yes)
+                  :Keep cards flipped;
+                  if (Cards all matched) then (yes)
+                     :Display You Win screen;
+                  endif
+               else (Cards do not match)
+                  :Flip cards back round;
+               endif
+            case (False)
+               :Display You Lose Alert;
+      endswitch
       endwhile
+      
    case (Player selects Diary Page)
       :Display Diary Page;
       if (User Selects Submit) then (yes)
@@ -33,6 +39,8 @@ switch (Display Main Menu)
          while (Diary box empty) is (true)
          endwhile (Diary box filled)
       endif
+      :User Selects View Entries Page;
+      :Display all Entries in database;
    case (User selects Help Page)
       :Display Help Page;
    endswitch
