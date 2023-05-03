@@ -6,9 +6,9 @@ participant "Database Manager"
 database "Database"
 activate "Database Manager"
 
-User -> "Database Manager" : addToDiary(Title, Date)
+User -> "Database Manager" : addToDiary(Title, Content)
 
-"Database Manager" -> Database : QueryDatabase(Title, Date)
+"Database Manager" -> Database : QueryDatabase(Title, Content)
 activate "Database"
 
 alt If diary is in acceptable format

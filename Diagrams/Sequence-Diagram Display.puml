@@ -1,0 +1,26 @@
+@startuml SequenceDiagram Login
+
+
+actor User
+participant "Database Manager"
+database "Database"
+activate "Database Manager"
+
+User -> "Database Manager" : ReturnAllDatabase()
+
+"Database Manager" -> Database : QueryDatabase()
+activate "Database"
+
+alt If diary is in acceptable format
+"Database" --> "Database Manager" :  ReturnDatabase(DiaryInfo)
+deactivate "Database"
+"Database Manager" -> User : "Display all entries"
+deactivate "Database Manager"
+
+
+else If no entries exist 
+"Database" -> "Database Manager" : Return nothing
+"Database Manager" --> User : "Display nothing"
+
+end
+@enduml

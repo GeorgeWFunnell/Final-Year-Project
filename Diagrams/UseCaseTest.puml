@@ -1,0 +1,15 @@
+@startuml Use_Case_Diagram
+
+left to right direction
+actor User
+rectangle Use_Case_Diagram {
+  User -- (GetUserInfo)
+  (GetUserInfo) .> (SaveInfo) : include
+  User -- (AddDrinkToRecord)
+  User -- (RemoveDrinkFromRecord)
+  (RemoveDrinkFromRecord) .> (GetDrinkInfo) : include
+  (AddDrinkToRecord) .> (GetDrinkInfo) : include
+  User -- (DispayRecord)
+  User -- (DisplayProfile)
+}
+@enduml
