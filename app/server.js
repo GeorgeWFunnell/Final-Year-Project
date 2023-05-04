@@ -1,4 +1,3 @@
-import path from 'path';
 import express from 'express';
 import * as db from "./database.js"
 

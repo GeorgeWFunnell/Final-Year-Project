@@ -7,7 +7,7 @@ const FILES = [
     './worker.js',
     './stylesheet.css',
     './app.webmanifest',
-    './Images/logo.png',
+    './images/logo.png',
     './database.js',
     './template_loading.js'
 ];
